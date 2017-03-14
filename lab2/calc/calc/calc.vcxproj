@@ -80,17 +80,25 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Combi.h" />
+    <ClInclude Include="Accomodation.h" />
+    <ClInclude Include="Boat.h" />
+    <ClInclude Include="Reshuffle.h" />
+    <ClInclude Include="Subset.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="xCombi.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Combi.cpp" />
+    <ClCompile Include="Accomodation.cpp" />
+    <ClCompile Include="Boat.cpp" />
+    <ClCompile Include="Reshuffle.cpp" />
+    <ClCompile Include="Subset.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="xCombi.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

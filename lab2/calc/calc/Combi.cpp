@@ -1,49 +1,29 @@
 #include "stdafx.h"
 #include "Combi.h"
-#include <algorithm>
+#include <iostream>
 
-namespace combi
-{
-	subset::subset(short n)
-	{
-		this->n = n;
-		this->sset = new short[n];
-		this->reset();
-	};
+using namespace std;
 
-	void  subset::reset()
-	{
-		this->sn = 0;
-		this->mask = 0;
-	};
+int X[100] = { 1, 2, 4 };
+int N;
 
-	short subset::getfirst()
-	{
-		__int64 buf = this->mask;
-		this->sn = 0;
-		for (short i = 0; i < n; i++)
-		{
-			if (buf & 0x1) this->sset[this->sn++] = i;
-			buf >>= 1;
+void Swap(int a, int b) {
+	int t = X[a];
+	X[a] = X[b];
+	X[b] = t;
+}
+
+void Generate(int k) {
+	if (k == N) {
+		for (int i = 0; i < N; i++)
+			cout << X[i] << " ";
+		cout << "\n";
+	}
+	else {
+		for (int j = k; j < N; j++) {
+			Swap(k, j);
+			Generate(k + 1);
+			Swap(k, j);
 		}
-		return this->sn;
-	};
-
-	short subset::getnext()
-	{
-		int rc = -1;
-		this->sn = 0;
-		if (++this->mask < this->count()) rc = getfirst();
-		return rc;
-	};
-
-	short subset::ntx(short i)
-	{
-		return  this->sset[i];
-	};
-
-	unsigned __int64 subset::count()
-	{
-		return (unsigned __int64)(1 << this->n);
-	};
-};
+	}
+}
